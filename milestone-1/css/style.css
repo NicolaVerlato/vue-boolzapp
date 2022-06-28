@@ -1,0 +1,92 @@
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* common */
+img{
+    display: block;
+    width: 50px;
+    border-radius: 50%;
+}
+
+/* main */
+.wrapper{
+    height: 100vh;
+    background-color: #019688;
+    display: flex;
+    align-items: center;
+}
+#root{
+    width: 80%;
+    max-width: 950px;
+    height: 95%;
+    margin: 0 auto;
+    display: flex;
+}
+aside{
+    width: 35%;
+    background-color: white;
+}
+.main-chat{
+    width: 65%;
+}
+.user-name-ads{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #eaeaea;
+    align-items: center;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.profile .user-name{
+    margin-left: 3px;
+}
+.icons i{
+    margin: 5px;
+    color: grey;
+}
+.ads{
+    background-color: #8edafc;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.ads .icons i{
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #8edafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ads-link a{
+    font-size: 13px;
+    color: gray;
+}
+.search {
+    padding: 5px;
+    background-color: #f6f6f6;
+    display: flex;
+}
+.search .icon {
+    width: 40px;
+    background-color: white;
+    color: gray;
+    text-align: center;
+}
+.search .icon i{
+    padding-top: 3px;
+}
+.search input{
+    width: calc(100% - 40px);
+    font-size: 12px;
+    border: 1px solid white;
+}
