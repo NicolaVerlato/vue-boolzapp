@@ -88,13 +88,17 @@
                         </div>
                     </div> 
                     
-                    <div v-for="text, index in contacts.messagges" class="chat-area">
-                        <div v-if="{'sent' : this.messages.status === 'sent'}" v-else="{'received' : this.messages.status === 'received'}">
-                            {{ contacts[currentChat].messages.text }}
-                            {{ contacts[currentChat].messages.status }}
+                    <div class="chat-area">
+                        <div class="message" v-for="message, index in contacts[currentChat].messages" :class="contacts[currentChat].messages.status === 'sent' ? 'received' : 'sent'">
+                            <div>
+                                {{ message.text }}
+                            </div>
+                            <div class="date">
+                                {{ message.date }}
+                            </div>
                         </div>
                     </div>
-
+                    
                     <div class="text-area">
                         <i class="fa-regular fa-face-smile"></i>
                         <input v-model="textMessage" type="text" placeholder="Scrivi un messaggio">
