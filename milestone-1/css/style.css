@@ -21,17 +21,19 @@ img{
 }
 #root{
     width: 80%;
-    max-width: 950px;
+    min-width: 950px;
     height: 95%;
     margin: 0 auto;
     display: flex;
 }
+
+/* parte sinistra */
 aside{
-    width: 35%;
+    width: 30%;
     background-color: white;
 }
 .main-chat{
-    width: 65%;
+    width: 70%;
 }
 .user-name-ads{
     display: flex;
@@ -39,6 +41,7 @@ aside{
     padding: 5px;
     background-color: #eaeaea;
     align-items: center;
+    height: 60px;
 }
 .profile{
     display: flex;
@@ -71,6 +74,23 @@ aside{
     font-size: 13px;
     color: gray;
 }
+.chat-container{
+    height: calc(100vh - 152px);
+    overflow-y: auto;
+    flex-grow: 1;
+}
+.chat{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #f6f6f6;
+}
+.chat .user-name{
+    margin-left: 10px;
+}
+.chat:hover{
+    background-color: #eaeaea;
+    cursor: pointer;
+}
 .search {
     padding: 5px;
     background-color: #f6f6f6;
@@ -89,4 +109,60 @@ aside{
     width: calc(100% - 40px);
     font-size: 12px;
     border: 1px solid white;
+}
+
+/* parte destra */
+.current-chat{
+    background-image: url(../img/mine.jpg);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.chat-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #eaeaea;
+    align-items: center;
+    height: 60px;
+}
+.chat-info .info{
+    display: flex;
+    align-items: center;
+}
+.info .user-name{
+    margin-left: 10px;
+}
+.info .user-name .last-access{
+    font-size: 14px;
+    color: grey;
+}
+.chat-area{
+    padding: 30px;
+}
+.text-area{
+    height: 60px;
+    background-color: #f3eeea;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.text-area i{
+    color: grey;
+    padding: 0 20px;
+}
+.text-area input{
+    width: calc(100% - 100px);
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0 15px;
+}
+
+.sent{
+    background-color: #d5f9ba;
+}
+.received{
+    background-color: white;
 }

@@ -2,6 +2,8 @@ var app = new Vue(
     {
         el: '#root',
         data: {
+            textMessage: '',
+            currentChat: 0,
             userSearch: '',
             contacts: [
                 {
@@ -88,6 +90,13 @@ var app = new Vue(
                     ],
                 },
             ]
+        },
+        methods: {
+            goToThisChat(chatIndex) {
+                // al click su una chat nella parte sinistra viene mostrata in pagina
+                // la conversazione 
+                this.currentChat = chatIndex;
+            }
         }
     }
 )

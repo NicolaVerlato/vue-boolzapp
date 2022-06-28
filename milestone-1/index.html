@@ -46,7 +46,7 @@
                 </div>
 
                 <!-- chat -->
-                <div class="chat">
+                <div class="chat-container">
                     <div class="search">
                         <div class="icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -54,18 +54,53 @@
                         <input v-model="userSearch" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
 
-                    <div v-for="contact in contacts" class="chats">
-                        <img src="img/avatar{contact.avatar}.jpg" alt="contact.name">
-                        <div class="user-name">
-                            <b>{{ contact.name }}</b>
-                        </div>
-                    </div>
+                    <ul>
+                        <li @click="goToThisChat(index)" v-for="(contact, index) in contacts" class="chat">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                            <div class="user-name">
+                                <b>{{ contact.name }}</b>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </aside>
 
+
             <!-- parte destra -->
             <div class="main-chat">
+                <!-- chat corrente -->
+                <div class="current-chat">
+                    <div class="chat-info">
+                        <div class="info">
+                            <img :src="'img/avatar' + contacts[currentChat].avatar + '.jpg'" alt="contacts[currentChat].name">
+                            <div class="user-name">
+                                <b>{{ contacts[currentChat].name }}</b>
+                                <div class="last-access">
+                                    Ultimo accesso oggi alle 
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="icons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div> 
+                    
+                    <div v-for="text, index in contacts.messagges" class="chat-area">
+                        <div v-if="{'sent' : this.messages.status === 'sent'}" v-else="{'received' : this.messages.status === 'received'}">
+                            {{ contacts[currentChat].messages.text }}
+                            {{ contacts[currentChat].messages.status }}
+                        </div>
+                    </div>
 
+                    <div class="text-area">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input v-model="textMessage" type="text" placeholder="Scrivi un messaggio">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
