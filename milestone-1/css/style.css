@@ -87,6 +87,9 @@ aside{
 .chat .user-name{
     margin-left: 10px;
 }
+.chat.active{
+    background-color: grey;
+}
 .chat:hover{
     background-color: #eaeaea;
     cursor: pointer;
@@ -161,6 +164,7 @@ aside{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 .message{
     width: 40%;

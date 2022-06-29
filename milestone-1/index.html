@@ -55,7 +55,7 @@
                     </div>
 
                     <ul>
-                        <li @click="goToThisChat(index)" v-for="(contact, index) in contacts" class="chat">
+                        <li @click="goToThisChat(index)" v-for="(contact, index) in contacts" class="chat" :class="'active' === index">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                             <div class="user-name">
                                 <b>{{ contact.name }}</b>
@@ -89,7 +89,7 @@
                     </div> 
                     
                     <div class="chat-area">
-                        <div class="message" v-for="message, index in contacts[currentChat].messages" :class="contacts[currentChat].messages.status === 'sent' ? 'received' : 'sent'">
+                        <div class="message" v-for="message, index in contacts[currentChat].messages" :class="message.status">
                             <div>
                                 {{ message.text }}
                             </div>
