@@ -55,7 +55,7 @@
                     </div>
 
                     <ul>
-                        <li @click="goToThisChat(index)" v-for="(contact, index) in contacts" class="chat" :class="'active' === index">
+                        <li @click="goToThisChat(index)" v-for="(contact, index) in contacts" class="chat" :class="index === currentChat ? 'active' : '' " >
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                             <div class="user-name">
                                 <b>{{ contact.name }}</b>

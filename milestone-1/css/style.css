@@ -88,7 +88,7 @@ aside{
     margin-left: 10px;
 }
 .chat.active{
-    background-color: grey;
+    background-color: #eaeaea;
 }
 .chat:hover{
     background-color: #eaeaea;
