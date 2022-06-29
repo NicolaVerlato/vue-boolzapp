@@ -98,15 +98,18 @@ var app = new Vue(
                 this.currentChat = chatIndex;
             },
             sendMessage() {
+                let timeOut;
                 if(this.textMessage.length > 0) {
                     this.contacts[this.currentChat].messages.push({
                         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text: this.textMessage,
                         status: 'sent'
                     });
+                    this.textMessage = '';
+                    timeOut = setTimeout(this.receivedAnswer, 1000);
+                } else {
+                    clearInterval(timeOut);
                 }
-                this.textMessage = '';
-                setTimeout(this.receivedAnswer, 1000);
             },
             receivedAnswer(){
                 this.contacts[this.currentChat].messages.push({
