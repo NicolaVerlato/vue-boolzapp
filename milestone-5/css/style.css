@@ -212,7 +212,6 @@ aside{
     background-color: white;
     z-index: 1;
     border-radius: 5px;
-    display: none;
 }
 .message-option.show{
     display: block;

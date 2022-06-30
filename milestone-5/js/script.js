@@ -5,7 +5,7 @@ var app = new Vue(
             show: false,
             textMessage: '',
             currentChat: 0,
-            currentMessage: 1,
+            currentMessage: 0,
             userSearch: '',
             contacts: [
                 {
@@ -136,12 +136,10 @@ var app = new Vue(
             deleteMessage(thisMessage) {
                 this.contacts[this.currentChat].messages.splice(thisMessage, 1)
             },
-            showDiv() {
-                this.contacts[this.currentChat].messages.forEach((element, index) => {
-                    element.text
-                })
-            },
-            
+            showDiv(thisMessage) { 
+                this.currentMessage = thisMessage;
+                this.show = !this.show
+            },  
         }
     }
 )

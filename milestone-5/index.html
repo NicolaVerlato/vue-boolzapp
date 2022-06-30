@@ -94,8 +94,8 @@
                         <div class="message" v-for="message, index in contacts[currentChat].messages" :class="message.status">
                             <div class="text-message">
                                 {{ message.text }}
-                                <i @click="showDiv()" class="fa-solid fa-chevron-down"></i>
-                                <div class="message-option" :class="index === currentMessage ? 'show' : ''">
+                                <i @click="showDiv(index)" class="fa-solid fa-chevron-down"></i>
+                                <div class="message-option" v-if="index === currentMessage && show">
                                     <div class="message-info">
                                         Message info
                                     </div>
