@@ -5,7 +5,7 @@ var app = new Vue(
             show: false,
             textMessage: '',
             currentChat: 0,
-            currentMessage: 0,
+            currentMessage: null,
             userSearch: '',
             contacts: [
                 {
@@ -100,7 +100,6 @@ var app = new Vue(
                 this.currentChat = chatIndex;
             },
             sendMessage() {
-                let timeOut;
                 if(this.textMessage.length > 0) {
                     this.contacts[this.currentChat].messages.push({
                         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
@@ -108,9 +107,7 @@ var app = new Vue(
                         status: 'sent'
                     });
                     this.textMessage = '';
-                    timeOut = setTimeout(this.receivedAnswer, 1000);
-                } else {
-                    clearInterval(timeOut);
+                    setTimeout(this.receivedAnswer, 1000);
                 }
             },
             receivedAnswer(){
@@ -137,9 +134,9 @@ var app = new Vue(
                 this.contacts[this.currentChat].messages.splice(thisMessage, 1)
             },
             showDiv(thisMessage) { 
-                this.currentMessage = thisMessage;
-                this.show = !this.show
-            },  
+            this.currentMessage = thisMessage
+            this.show = !this.show
+            }
         }
     }
 )
