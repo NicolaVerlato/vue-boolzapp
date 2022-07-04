@@ -60,7 +60,9 @@
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                             <div class="user-name">
                                 <b>{{ contact.name }}</b>
+                                <div class="last-message">{{ getLastMessage(index) }}</div>
                             </div>
+                            <div class="last-access">{{ getLastDate(index) }}</div>
                         </li>
                     </ul>
                 </div>
@@ -77,7 +79,7 @@
                             <div class="user-name">
                                 <b>{{ contacts[currentChat].name }}</b>
                                 <div class="last-access">
-                                    Ultimo accesso oggi alle 
+                                    Ultimo accesso oggi alle  {{ contacts[currentChat].messages[contacts[currentChat].messages.length - 1].date }} 
                                 </div>
                             </div>
                         </div>
@@ -95,7 +97,7 @@
                             <div class="text-message">
                                 {{ message.text }}
                                 <i @click="showDiv(index)" class="fa-solid fa-chevron-down"></i>
-                                <div class="message-option" v-if="index === currentMessage && show">
+                                <div class="message-option" v-if="index === currentMessage">
                                     <div class="message-info">
                                         Message info
                                     </div>

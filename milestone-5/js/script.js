@@ -2,7 +2,6 @@ var app = new Vue(
     {
         el: '#root',
         data: {
-            show: false,
             textMessage: '',
             currentChat: 0,
             currentMessage: null,
@@ -98,6 +97,7 @@ var app = new Vue(
                 // al click su una chat nella parte sinistra viene mostrata in pagina
                 // la conversazione 
                 this.currentChat = chatIndex;
+                this.currentMessage = null
             },
             sendMessage() {
                 if(this.textMessage.length > 0) {
@@ -131,11 +131,27 @@ var app = new Vue(
                 });
             },
             deleteMessage(thisMessage) {
-                this.contacts[this.currentChat].messages.splice(thisMessage, 1)
+                this.contacts[this.currentChat].messages.splice(thisMessage, 1),
+                this.currentMessage = null
             },
             showDiv(thisMessage) { 
-            this.currentMessage = thisMessage
-            this.show = !this.show
+                if(this.currentMessage === thisMessage){
+                    this.currentMessage = null;
+                } else{
+                    this.currentMessage = thisMessage;
+                }
+            },
+            getLastDate(index){
+                const arrayMessages = this.contacts[index].messages;
+                return arrayMessages[arrayMessages.length - 1].date
+            },
+            getLastMessage(index){
+                const arrayMessages = this.contacts[index].messages;
+                let lastMessage = arrayMessages[arrayMessages.length - 1].text;
+                if(lastMessage.length > 10) {
+                    lastMessage = lastMessage.slice(0, 10) + '...';
+                }
+                return lastMessage;
             }
         }
     }

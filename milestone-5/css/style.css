@@ -83,6 +83,17 @@ aside{
     display: flex;
     padding: 10px;
     border-bottom: 1px solid #f6f6f6;
+    position: relative;
+}
+.last-message{
+    margin-top: 10px;
+    font-size: 13px;
+}
+.chat .last-access{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 13px;
 }
 .chat .user-name{
     margin-left: 10px;
